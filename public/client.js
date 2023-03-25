@@ -208,7 +208,7 @@ let group_name=groupname.value;
         content.style="display:none"
         creategroup.style.display="none"
     groupname.style.display="none"
-        const request=await fetch("http://localhost:3000/creategroup",{
+        const request=await fetch("https://ourcampustree.onrender.com/creategroup",{
             method:"POST",
             headers:{
               "Content-Type":"application/json",
