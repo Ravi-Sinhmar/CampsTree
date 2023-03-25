@@ -42,7 +42,7 @@ app.use(bp.urlencoded({ extended: true ,limit:'500mb'}))
 app.set('view engine', 'ejs');
 
 
-app.use(cors());
+
 
 // Port Listening
 const PORT = process.env.PORT || 3000
