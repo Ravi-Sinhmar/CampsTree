@@ -36,7 +36,7 @@ community.addEventListener("click",async function(){
  members.push(adminid) 
     row.style.display="none"
     isgroup=1;
-    const request=await fetch("http://localhost:3000/startcommunity",{
+    const request=await fetch("https://ourcampustree.onrender.com/startcommunity",{
         method:"POST",
         headers:{
           "Content-Type":"application/json",
@@ -140,7 +140,7 @@ const  hello2 =(async(v2,username)=>{
         
 
         alert("now req will start")
-        const request=await fetch("http://localhost:3000/creategroup",{
+        const request=await fetch("https://ourcampustree.onrender.com/creategroup",{
             method:"POST",
             headers:{
               "Content-Type":"application/json",
@@ -268,7 +268,7 @@ creategroup.style.display="none"
     isgroup=0;
     members.push(adminid) 
        row.style.display="none"
-       const request=await fetch("http://localhost:3000/startcommunity",{
+       const request=await fetch("https://ourcampustree.onrender.com/startcommunity",{
            method:"POST",
            headers:{
              "Content-Type":"application/json",
@@ -371,7 +371,7 @@ const hello = ( async (value,name,id,title) => {
 Specific_chat_name=name;
    alert(gptype)
 
-   const request=await fetch("http://localhost:3000/printchats",{
+   const request=await fetch("https://ourcampustree.onrender.com/printchats",{
            method:"POST",
            headers:{
              "Content-Type":"application/json",
@@ -495,7 +495,7 @@ function scrollToBottom() {
 
 window.onload=(async()=>{
 const request= await
-fetch("http://localhost:3000/all_chats_details",{
+fetch("https://ourcampustree.onrender.com/all_chats_details",{
     method:"POST",
      headers:{
         "Content-Type":"application/json",
