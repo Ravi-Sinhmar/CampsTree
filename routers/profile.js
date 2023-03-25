@@ -95,7 +95,7 @@ profile.get("/myprofile",auth,async(req,res)=>{     //rending my profile
 
     const user=await register.findOne({_id:req.cookies.id});
      if(user){
-         console.log(user.about);
+         //console.log(user.about);
         //  let basic_info={
         //      fullname:user.full_name,
         //      user_id:user.user_id,
