@@ -1,14 +1,6 @@
 //importing all local files and modules
 const express=require("express");
 const app=express();
-
-
-
-
-
-
-
-
 // const express = require('express')
 // const app = express()
 const http = require('http').createServer(app)
@@ -18,19 +10,34 @@ const aChatSchema = require("./models/achat");
 const OnlySchema = require("./models/chatArray");
 const user=require("./routers/user");
 
-//const registerSchema = require("./models/register");
+// const http = require('http').createServer(app);
 
-const bodyParser = require('body-parser');
+const profile=require("./routers/profile");
+
+const story=require("./routers/stories");
+const ejs=require("ejs");
+const cookieParser = require('cookie-parser')
+const bp = require('body-parser');
+
+
+require("./connection/db");
+// Socket 
+const io = require('socket.io')(http)
+
+//const registerSchema = require("./models/register");
 
 
 // Middlewares 
-app.use(express.json({
-    type: ['application/json', 'text/plain']
-}));
+
 app.use(express.static(__dirname + '/public'))
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true ,limit:'500mb'}));
 
+//middlewares
+app.use(express.static(__dirname + './public'));
+app.use(express.static("./public"));
 
+app.use(bp.json({limit:'500mb'}));
+app.use(bp.urlencoded({ extended: true ,limit:'500mb'}))
 //   Ejs Template Added
 app.set('view engine', 'ejs');
 
@@ -41,8 +48,7 @@ http.listen(PORT, () => {
 });
 
 
-// Socket 
-const io = require('socket.io')(http)
+
 
 
 
@@ -288,17 +294,6 @@ socket.on('message',  (msg) => {
 
 
 
-// const http = require('http').createServer(app);
-
-const profile=require("./routers/profile");
-
-const story=require("./routers/stories");
-const ejs=require("ejs");
-const cookieParser = require('cookie-parser')
-const bp = require('body-parser');
-
-
-require("./connection/db");
         
 // const PORT = process.env.PORT || 3000
 // http.listen(PORT, () => {
@@ -315,13 +310,7 @@ require("./connection/db");
 //port
 // const port=process.env.PORT||3000;
 
-//middlewares
-app.use(express.static(__dirname + './public'));
-app.use(express.static("./public"));
 
-app.set('view engine', 'ejs');
-app.use(bp.json({limit:'500mb'}));
-app.use(bp.urlencoded({ extended: true ,limit:'500mb'}))
 /*app.use(express.json());
 app.use(express.urlencoded({extended:false})); //for parsing for body parser 
 */
